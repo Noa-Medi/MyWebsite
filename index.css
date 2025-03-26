@@ -1,0 +1,116 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+}
+
+.monitor {
+    margin-top: 30px;
+    font-size: 30px;
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    /* Prevents the effect from overflowing */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    background-color: rgb(60, 60, 60);
+    color: white;
+    box-shadow: 0 1px 20px rgba(255, 255, 255, 0.253);
+    transition: transform 0.2s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Create the effect (hidden by default) */
+button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+    visibility: hidden;
+    /* Initially hidden */
+}
+
+/* Activate the water drop effect on click */
+button:focus::after {
+    visibility: visible;
+    /* Make it visible when clicked */
+    animation: ripple 0.5s ease-out;
+}
+
+button:hover,
+button:focus {
+    color: black;
+    transform: scale(1.08);
+}
+
+/* Water drop animation */
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(5);
+        opacity: 0;
+    }
+}
+
+/* 
+button:before {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    opacity: 0;
+    background-color: rgb(197, 197, 197);
+    z-index: -1;
+    content: '';
+    border-radius: inherit;
+}
+
+
+
+
+button: {
+    background-color: rgb(100, 100, 100);
+    transition: all 0.5s ease-in-out;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+} */
+
+/* button:hover:before,
+button:focus:before {
+    transition: all 0.5s ease-in-out;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+} */
+
+.operations-btn {
+    background-color: orange;
+    box-shadow: 0 1px 20px rgba(255, 166, 0, 0.733);
+}
+
+.btn-clear {
+    font-size: 12px;
+}
